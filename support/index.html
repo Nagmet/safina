@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Safina · Support</title>
+<meta name="description" content="Support for the Safina app for iPhone">
+<style>*{box-sizing:border-box}body{margin:0}
+.mailbtn{display:inline-block;margin:6px 0 4px;padding:11px 18px;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none}
+.addr{display:block;margin-top:6px;color:var(--muted);font-size:14px;user-select:all}
+details{padding:12px 0;border-bottom:1px solid var(--line)}details:last-of-type{border-bottom:0}
+summary{cursor:pointer;font-weight:700}details p{margin:8px 0 0;max-width:65ch}
+.links a{color:var(--accent);font-weight:700}
+</style>
+<style>
+/* layout: one calm reading column, emerald header band like the app, language chips on top */
+:root{
+  --bg:#F3F1EA;--surface:#FBFAF6;--ink:#1B2621;--muted:#5C6A63;--line:#DCD8CB;
+  --hero:#0F2F25;--hero-ink:#F2EEE2;--brass:#B08A45;--accent:#1F5C48;
+  --f-disp:"Cormorant Garamond",Georgia,serif;--f-ui:"Manrope",system-ui,sans-serif;--f-fa:"Vazirmatn","Geeza Pro",sans-serif;--f-ar:"Amiri","Geeza Pro",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1613;--surface:#15201B;--ink:#E8E5DA;--muted:#9AA79F;--line:#26332D;--hero:#0A231B;--hero-ink:#F2EEE2;--brass:#D2AE6B;--accent:#7CC2A6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1613;--surface:#15201B;--ink:#E8E5DA;--muted:#9AA79F;--line:#26332D;--hero:#0A231B;--hero-ink:#F2EEE2;--brass:#D2AE6B;--accent:#7CC2A6;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--f-ui)}
+.wrap{max-width:720px;margin:0 auto;padding-inline:20px;padding-block:24px 56px}
+header{background:var(--hero);color:var(--hero-ink);border-radius:22px;padding:28px 24px 24px;display:grid;gap:6px}
+header .ar{font-family:var(--f-ar);color:var(--brass);font-size:22px;line-height:1}
+header h1{font-family:var(--f-disp);font-weight:600;font-size:clamp(30px,7vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+header p{margin:0;color:color-mix(in srgb,var(--hero-ink) 75%,transparent);font-size:14px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px}
+nav button{font:600 14px var(--f-ui);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+nav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+nav button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.sum{margin:18px 0 6px;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--surface);font-weight:600}
+section{padding-block:14px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--f-disp);font-weight:600;font-size:24px;margin:0;color:var(--accent)}
+section p{margin:0;max-width:65ch}
+.meta{color:var(--muted);font-size:13px;margin-top:18px}
+.mail{font-weight:700;user-select:all}
+[dir="rtl"] body,[dir="rtl"] .wrap{font-family:var(--f-fa)}
+[lang="ar"] .wrap{font-family:var(--f-ar);font-size:18px}
+[dir="rtl"] h2,[dir="rtl"] header h1{font-family:inherit;font-weight:600}
+</style>
+</head><body>
+<div class="wrap">
+  <header><div class="ar">سفينة</div><h1 id="h1"></h1><p id="sub"></p></header>
+  <nav id="langs" aria-label="Language">
+    <button data-l="ru">Русский</button><button data-l="en">English</button><button data-l="az">Azərbaycanca</button><button data-l="fa">فارسی</button><button data-l="ar">العربية</button>
+  </nav>
+  <div class="sum"><p id="intro" style="margin:0 0 8px"></p><a class="mailbtn" id="mail" href="mailto:mardanovi.apps@icloud.com"></a><span class="addr">mardanovi.apps@icloud.com</span></div>
+  <main id="body"></main>
+  <p class="links"><a id="pp" href="../privacy/"></a></p>
+</div>
+<script>
+const L={"ru": {"h1": "Поддержка", "sub": "Приложение «Сафина» для iPhone", "intro": "Есть вопрос, нашли ошибку или неточность в тексте? Напишите нам, обычно отвечаем в течение нескольких дней.", "mail": "Написать письмо", "faq": "Частые вопросы", "q": [["Время намаза не совпадает с мечетью", "Проверьте город и метод расчета: нажмите на название города вверху экрана «Сегодня». Если разница остается, напишите нам, какой у вас город и мечеть."], ["Не приходят уведомления об азане", "Включите уведомления в настройках приложения и в настройках iPhone: Настройки → Уведомления → Сафина. Открывайте приложение хотя бы раз в неделю: iOS позволяет заранее запланировать уведомления только на несколько дней."], ["Как восстановить Сафина+ на новом телефоне", "Откройте «Ещё» → «Сафина+» и нажмите «Восстановить покупки». Используйте тот же Apple ID, с которого оформляли подписку."], ["Как отменить подписку", "Подпиской управляет Apple: Настройки iPhone → ваше имя → Подписки → Сафина+. После отмены функции работают до конца оплаченного периода."], ["Нашли ошибку в тексте дуа или урока", "Напишите нам название дуа или урока и что именно не так. Мы благодарны за каждое исправление."]], "pp": "Политика конфиденциальности"}, "en": {"h1": "Support", "sub": "Safina app for iPhone", "intro": "Have a question, found a bug or a mistake in a text? Write to us, we usually reply within a few days.", "mail": "Send an email", "faq": "Frequently asked questions", "q": [["Prayer times differ from my mosque", "Check the city and the calculation method: tap the city name at the top of the Today screen. If the difference remains, tell us your city and mosque."], ["Azan notifications do not arrive", "Turn on notifications in the app settings and in iPhone Settings → Notifications → Safina. Open the app at least once a week: iOS only lets apps schedule notifications a few days ahead."], ["How to restore Safina+ on a new phone", "Open More → Safina+ and tap Restore purchases. Use the same Apple ID you subscribed with."], ["How to cancel the subscription", "Subscriptions are managed by Apple: iPhone Settings → your name → Subscriptions → Safina+. After cancelling, the features stay available until the end of the paid period."], ["Found a mistake in a dua or lesson", "Write to us with the name of the dua or lesson and what is wrong. We are grateful for every correction."]], "pp": "Privacy Policy"}, "az": {"h1": "Dəstək", "sub": "iPhone üçün «Səfinə» tətbiqi", "intro": "Sualınız var, xəta və ya mətndə yanlışlıq tapmısınız? Bizə yazın, adətən bir neçə gün ərzində cavab veririk.", "mail": "Məktub yaz", "faq": "Tez-tez verilən suallar", "q": [["Namaz vaxtı məscidlə üst-üstə düşmür", "Şəhəri və hesablama üsulunu yoxlayın: «Bu gün» ekranının yuxarısında şəhərin adına toxunun. Fərq qalırsa, şəhərinizi və məscidi bizə yazın."], ["Azan bildirişləri gəlmir", "Bildirişləri tətbiqin parametrlərində və iPhone-da açın: Parametrlər → Bildirişlər → Səfinə. Tətbiqi həftədə ən azı bir dəfə açın: iOS bildirişləri yalnız bir neçə gün əvvəlcədən planlaşdırmağa icazə verir."], ["Yeni telefonda Səfinə+ necə bərpa olunur", "«Daha çox» → «Səfinə+» bölməsini açın və «Alışları bərpa et» düyməsinə toxunun. Abunəlik etdiyiniz eyni Apple ID-dən istifadə edin."], ["Abunəliyi necə ləğv etmək olar", "Abunəliyi Apple idarə edir: iPhone Parametrləri → adınız → Abunəliklər → Səfinə+. Ləğv etdikdən sonra funksiyalar ödənilmiş müddətin sonuna qədər işləyir."], ["Dua və ya dərs mətnində xəta tapdınız", "Duanın və ya dərsin adını və nəyin səhv olduğunu bizə yazın. Hər düzəlişə görə minnətdarıq."]], "pp": "Məxfilik siyasəti"}, "fa": {"h1": "پشتیبانی", "sub": "برنامهٔ «سفینه» برای آیفون", "intro": "سؤالی دارید یا خطا یا اشتباهی در متن پیدا کرده‌اید؟ برای ما بنویسید؛ معمولاً ظرف چند روز پاسخ می‌دهیم.", "mail": "ارسال ایمیل", "faq": "پرسش‌های پرتکرار", "q": [["اوقات نماز با مسجد یکی نیست", "شهر و روش محاسبه را بررسی کنید: روی نام شهر در بالای صفحهٔ «امروز» بزنید. اگر تفاوت باقی ماند، شهر و مسجد خود را برای ما بنویسید."], ["اعلان اذان نمی‌آید", "اعلان‌ها را در تنظیمات برنامه و در تنظیمات آیفون روشن کنید: تنظیمات ← اعلان‌ها ← سفینه. دست‌کم هفته‌ای یک بار برنامه را باز کنید؛ iOS فقط اجازه می‌دهد اعلان‌ها چند روز جلوتر زمان‌بندی شوند."], ["بازگرداندن سفینه+ در گوشی جدید", "«بیشتر» ← «سفینه+» را باز کنید و «بازیابی خریدها» را بزنید. از همان Apple ID که با آن مشترک شده‌اید استفاده کنید."], ["لغو اشتراک", "اشتراک را اپل مدیریت می‌کند: تنظیمات آیفون ← نام شما ← اشتراک‌ها ← سفینه+. پس از لغو، امکانات تا پایان دورهٔ پرداخت‌شده فعال می‌مانند."], ["اشتباهی در متن دعا یا درس پیدا کردید", "نام دعا یا درس و اشکال آن را برای ما بنویسید. از هر اصلاحی سپاسگزاریم."]], "pp": "سیاست حفظ حریم خصوصی"}, "ar": {"h1": "الدعم", "sub": "تطبيق «سفينة» لأجهزة iPhone", "intro": "لديك سؤال أو وجدت خطأً في التطبيق أو في نص؟ راسلنا، وعادةً نرد خلال أيام قليلة.", "mail": "أرسل بريدًا", "faq": "أسئلة شائعة", "q": [["أوقات الصلاة لا تطابق المسجد", "تحقق من المدينة وطريقة الحساب: اضغط على اسم المدينة أعلى شاشة «اليوم». إن بقي الفرق فأخبرنا بمدينتك ومسجدك."], ["لا تصل إشعارات الأذان", "فعّل الإشعارات في إعدادات التطبيق وفي إعدادات iPhone: الإعدادات ← الإشعارات ← سفينة. افتح التطبيق مرة في الأسبوع على الأقل، فنظام iOS يسمح بجدولة الإشعارات لأيام قليلة مقدمًا فقط."], ["استعادة سفينة+ على هاتف جديد", "افتح «المزيد» ← «سفينة+» واضغط «استعادة المشتريات». استخدم معرّف Apple نفسه الذي اشتركت به."], ["إلغاء الاشتراك", "تدير Apple الاشتراكات: إعدادات iPhone ← اسمك ← الاشتراكات ← سفينة+. بعد الإلغاء تبقى الميزات متاحة حتى نهاية الفترة المدفوعة."], ["وجدت خطأً في نص دعاء أو درس", "راسلنا باسم الدعاء أو الدرس وما الخطأ فيه. نشكرك على كل تصحيح."]], "pp": "سياسة الخصوصية"}};
+function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function show(l){const t=L[l]||L.ru,rtl=l==="fa"||l==="ar";
+  document.documentElement.lang=l;document.documentElement.dir=rtl?"rtl":"ltr";
+  for(const k of ["h1","sub","intro","mail"])document.getElementById(k).textContent=t[k];
+  document.getElementById("body").innerHTML=`<section><h2>${esc(t.faq)}</h2>`+t.q.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")+`</section>`;
+  const pp=document.getElementById("pp");pp.textContent=t.pp+" ›";pp.href="../privacy/#"+l;
+  document.querySelectorAll("#langs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.l===l)));
+  try{localStorage.setItem("safina.privacy.lang",l)}catch(e){}}
+document.getElementById("langs").onclick=e=>{const b=e.target.closest("button");if(b)show(b.dataset.l)};
+let start="ru";const h=(location.hash||"").slice(1);
+if(L[h])start=h;else{try{const s=localStorage.getItem("safina.privacy.lang");if(L[s])start=s;else{const n=(navigator.language||"ru").slice(0,2);if(L[n])start=n}}catch(e){}}
+show(start);
+</script>
+</body></html>

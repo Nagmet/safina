@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Safina · Privacy Policy</title>
+<meta name="description" content="Privacy policy of the Safina app for iPhone">
+<style>*{box-sizing:border-box}body{margin:0}</style>
+</head><body>
+<style>
+/* layout: one calm reading column, emerald header band like the app, language chips on top */
+:root{
+  --bg:#F3F1EA;--surface:#FBFAF6;--ink:#1B2621;--muted:#5C6A63;--line:#DCD8CB;
+  --hero:#0F2F25;--hero-ink:#F2EEE2;--brass:#B08A45;--accent:#1F5C48;
+  --f-disp:"Cormorant Garamond",Georgia,serif;--f-ui:"Manrope",system-ui,sans-serif;--f-fa:"Vazirmatn","Geeza Pro",sans-serif;--f-ar:"Amiri","Geeza Pro",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1613;--surface:#15201B;--ink:#E8E5DA;--muted:#9AA79F;--line:#26332D;--hero:#0A231B;--hero-ink:#F2EEE2;--brass:#D2AE6B;--accent:#7CC2A6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1613;--surface:#15201B;--ink:#E8E5DA;--muted:#9AA79F;--line:#26332D;--hero:#0A231B;--hero-ink:#F2EEE2;--brass:#D2AE6B;--accent:#7CC2A6;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--f-ui)}
+.wrap{max-width:720px;margin:0 auto;padding-inline:20px;padding-block:24px 56px}
+header{background:var(--hero);color:var(--hero-ink);border-radius:22px;padding:28px 24px 24px;display:grid;gap:6px}
+header .ar{font-family:var(--f-ar);color:var(--brass);font-size:22px;line-height:1}
+header h1{font-family:var(--f-disp);font-weight:600;font-size:clamp(30px,7vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+header p{margin:0;color:color-mix(in srgb,var(--hero-ink) 75%,transparent);font-size:14px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px}
+nav button{font:600 14px var(--f-ui);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+nav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+nav button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.sum{margin:18px 0 6px;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--surface);font-weight:600}
+section{padding-block:14px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--f-disp);font-weight:600;font-size:24px;margin:0;color:var(--accent)}
+section p{margin:0;max-width:65ch}
+.meta{color:var(--muted);font-size:13px;margin-top:18px}
+.mail{font-weight:700;user-select:all}
+[dir="rtl"] body,[dir="rtl"] .wrap{font-family:var(--f-fa)}
+[lang="ar"] .wrap{font-family:var(--f-ar);font-size:18px}
+[dir="rtl"] h2,[dir="rtl"] header h1{font-family:inherit;font-weight:600}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="ar">سفينة</div>
+    <h1 id="h1"></h1>
+    <p id="sub"></p>
+  </header>
+  <nav id="langs" aria-label="Language">
+    <button data-l="ru">Русский</button><button data-l="en">English</button><button data-l="az">Azərbaycanca</button><button data-l="fa">فارسی</button><button data-l="ar">العربية</button>
+  </nav>
+  <div class="sum" id="sum"></div>
+  <main id="body"></main>
+  <p class="meta" id="meta"></p>
+</div>
+
+<script>
+const CONTACT="mardanovi.apps@icloud.com"; // e-mail для связи — вписать, когда будет заведён
+const UPDATED={ru:"31 октября 2026",en:"31 October 2026",az:"31 oktyabr 2026",fa:"۹ آبان ۱۴۰۵",ar:"31 أكتوبر 2026"};
+const L={
+ru:{h1:"Политика конфиденциальности",sub:"Приложение «Сафина» для iPhone",sum:"Сафина не собирает, не хранит на серверах и не передаёт ваши персональные данные. В приложении нет аккаунтов, рекламы, аналитики и отслеживания.",
+s:[["Что хранится на устройстве","Настройки (город, язык, метод расчёта, марджа), отметки намазов, каза, цели, закладки и вставленные вами тексты хранятся только в памяти вашего iPhone. Разработчик их не видит. Они удаляются вместе с приложением."],
+["Геопозиция","Доступ к геопозиции запрашивается, только когда вы нажимаете «Определить моё местоположение». Координаты используются на устройстве для расчёта времени намазов и киблы. Чтобы показать название места, iPhone обращается к системной службе Apple. Разработчику координаты не передаются."],
+["Уведомления и отсчет до намаза","Уведомления об азане и напоминания (например, о дуа Кумайль) создаются и планируются на самом iPhone. Отсчет до намаза на экране блокировки и в Dynamic Island тоже считается на устройстве. Сервер для этого не используется."],
+["Чтение Корана","Когда вы включаете чтеца, записи загружаются с сайта everyayah.com. Как и любой сайт, этот сервер получает технические данные запроса, например IP-адрес. Других данных о вас приложение туда не отправляет."],
+["Покупки: Сафина+ и поддержка","Основные функции бесплатны. Подписка Сафина+ (месяц или год, с пробным периодом) и покупка навсегда открывают дополнительные функции. Подписка продлевается автоматически, отменить ее можно в настройках Apple ID. Добровольные платежи в поддержку ничего не открывают. Все оплаты проходят через App Store: платежные данные обрабатывает Apple, разработчик их не получает. Приложение только проверяет у Apple, активна ли подписка."],
+["Внешние ссылки","Ссылки на сайты марджа и источников открываются в Safari. У этих сайтов свои правила конфиденциальности."],
+["Дети","Приложение подходит для любого возраста и ни у кого не собирает персональные данные, в том числе у детей."],
+["Изменения","Если правила изменятся, новая версия появится на этой странице с новой датой."]],
+contact:"Связь с разработчиком",nomail:"Адрес для связи будет добавлен здесь.",upd:"Обновлено"},
+en:{h1:"Privacy Policy",sub:"Safina app for iPhone",sum:"Safina does not collect, store on servers or share your personal data. The app has no accounts, ads, analytics or tracking.",
+s:[["Data kept on your device","Settings (city, language, calculation method, marja), prayer marks, qada, goals, bookmarks and texts you paste are stored only on your iPhone. The developer cannot see them. They are deleted together with the app."],
+["Location","Location access is requested only when you tap “Find my location”. The coordinates are used on the device to calculate prayer times and the qibla. To show the place name, the iPhone uses Apple's system service. The coordinates are not sent to the developer."],
+["Notifications and prayer countdown","Azan notifications and reminders (for example, for Dua Kumayl) are created and scheduled on the iPhone itself. The prayer countdown on the Lock Screen and in the Dynamic Island is also calculated on the device. No server is used."],
+["Quran recitation","When you play a reciter, the recordings are loaded from everyayah.com. Like any website, that server receives technical request data such as your IP address. The app sends it no other information about you."],
+["Purchases: Safina+ and tips","The core features are free. The Safina+ subscription (monthly or yearly, with a free trial) and the lifetime purchase unlock extra features. The subscription renews automatically and can be cancelled in your Apple ID settings. Voluntary tips unlock nothing. All payments go through the App Store: payment details are handled by Apple and the developer does not receive them. The app only asks Apple whether the subscription is active."],
+["External links","Links to marja and source websites open in Safari. Those websites have their own privacy rules."],
+["Children","The app is suitable for all ages and collects no personal data from anyone, including children."],
+["Changes","If this policy changes, the new version will appear on this page with a new date."]],
+contact:"Contact the developer",nomail:"A contact address will be added here.",upd:"Last updated"},
+az:{h1:"Məxfilik siyasəti",sub:"iPhone üçün «Səfinə» tətbiqi",sum:"Səfinə şəxsi məlumatlarınızı toplamır, serverlərdə saxlamır və heç kimə ötürmür. Tətbiqdə hesab, reklam, analitika və izləmə yoxdur.",
+s:[["Cihazda saxlanılanlar","Parametrlər (şəhər, dil, hesablama üsulu, mərcə), namaz qeydləri, qəza, məqsədlər, əlfəcinlər və əlavə etdiyiniz mətnlər yalnız iPhone-unuzda saxlanılır. Tərtibatçı onları görmür. Tətbiqlə birlikdə silinir."],
+["Məkan","Məkana giriş yalnız «Məkanımı müəyyən et» düyməsini basanda istənilir. Koordinatlar namaz vaxtlarını və qibləni hesablamaq üçün cihazda istifadə olunur. Yerin adını göstərmək üçün iPhone Apple-ın sistem xidmətinə müraciət edir. Koordinatlar tərtibatçıya göndərilmir."],
+["Bildirişlər və namaza geri sayım","Azan bildirişləri və xatırlatmalar (məsələn, Kumeyl duası üçün) iPhone-un özündə yaradılır və planlaşdırılır. Kilid ekranında və Dynamic Island-da namaza geri sayım da cihazda hesablanır. Server istifadə olunmur."],
+["Quran qiraəti","Qari qiraətini açanda yazılar everyayah.com saytından yüklənir. Hər sayt kimi bu server də sorğunun texniki məlumatlarını, məsələn IP ünvanını alır. Tətbiq ora sizin haqqınızda başqa məlumat göndərmir."],
+["Alışlar: Səfinə+ və dəstək","Əsas funksiyalar pulsuzdur. Səfinə+ abunəliyi (aylıq və ya illik, sınaq müddəti ilə) və birdəfəlik alış əlavə funksiyaları açır. Abunəlik avtomatik yenilənir, onu Apple ID parametrlərində ləğv etmək olar. Könüllü dəstək ödənişləri heç nə açmır. Bütün ödənişlər App Store vasitəsilə keçir: ödəniş məlumatlarını Apple emal edir, tərtibatçı onları almır. Tətbiq yalnız Apple-dan abunəliyin aktiv olub-olmadığını yoxlayır."],
+["Xarici keçidlər","Mərcə və mənbə saytlarına keçidlər Safari-də açılır. Bu saytların öz məxfilik qaydaları var."],
+["Uşaqlar","Tətbiq bütün yaşlar üçün uyğundur və heç kimdən, o cümlədən uşaqlardan şəxsi məlumat toplamır."],
+["Dəyişikliklər","Qaydalar dəyişsə, yeni versiya yeni tarixlə bu səhifədə görünəcək."]],
+contact:"Tərtibatçı ilə əlaqə",nomail:"Əlaqə ünvanı burada əlavə olunacaq.",upd:"Yenilənib"},
+fa:{h1:"سیاست حفظ حریم خصوصی",sub:"برنامهٔ «سفینه» برای آیفون",sum:"سفینه اطلاعات شخصی شما را جمع‌آوری نمی‌کند، روی سرور نگه نمی‌دارد و به کسی نمی‌دهد. برنامه حساب کاربری، تبلیغات، تحلیل آماری و ردیابی ندارد.",
+s:[["آنچه روی دستگاه ذخیره می‌شود","تنظیمات (شهر، زبان، روش محاسبه، مرجع)، علامت نمازها، قضا، اهداف، نشانک‌ها و متن‌هایی که خودتان وارد می‌کنید فقط روی آیفون شما ذخیره می‌شوند. توسعه‌دهنده آن‌ها را نمی‌بیند. با حذف برنامه پاک می‌شوند."],
+["موقعیت مکانی","دسترسی به موقعیت فقط وقتی درخواست می‌شود که «تعیین موقعیت من» را بزنید. مختصات روی دستگاه برای محاسبهٔ اوقات نماز و قبله به کار می‌رود. برای نمایش نام مکان، آیفون از سرویس سیستمی اپل استفاده می‌کند. مختصات برای توسعه‌دهنده ارسال نمی‌شود."],
+["اعلان‌ها و شمارش معکوس نماز","اعلان‌های اذان و یادآوری‌ها (مثلاً برای دعای کمیل) روی خود آیفون ساخته و زمان‌بندی می‌شوند. شمارش معکوس نماز در صفحهٔ قفل و Dynamic Island هم روی دستگاه محاسبه می‌شود. از سرور استفاده نمی‌شود."],
+["تلاوت قرآن","وقتی تلاوت قاری را پخش می‌کنید، فایل‌ها از سایت everyayah.com بارگیری می‌شوند. این سرور مانند هر سایتی اطلاعات فنی درخواست مانند نشانی IP را دریافت می‌کند. برنامه اطلاعات دیگری از شما به آنجا نمی‌فرستد."],
+["خریدها: سفینه+ و حمایت","امکانات اصلی رایگان است. اشتراک سفینه+ (ماهانه یا سالانه، با دورهٔ آزمایشی) و خرید دائمی امکانات بیشتری را باز می‌کنند. اشتراک به‌طور خودکار تمدید می‌شود و می‌توانید آن را در تنظیمات Apple ID لغو کنید. پرداخت‌های داوطلبانهٔ حمایت چیزی را باز نمی‌کنند. همهٔ پرداخت‌ها از طریق App Store انجام می‌شود: اطلاعات پرداخت را اپل پردازش می‌کند و توسعه‌دهنده آن را دریافت نمی‌کند. برنامه فقط از اپل می‌پرسد که اشتراک فعال است یا نه."],
+["پیوندهای بیرونی","پیوند سایت مراجع و منابع در Safari باز می‌شود. این سایت‌ها قوانین حریم خصوصی خود را دارند."],
+["کودکان","برنامه برای همهٔ سنین مناسب است و از هیچ‌کس، از جمله کودکان، اطلاعات شخصی جمع نمی‌کند."],
+["تغییرات","اگر این سیاست تغییر کند، نسخهٔ جدید با تاریخ جدید در همین صفحه منتشر می‌شود."]],
+contact:"تماس با توسعه‌دهنده",nomail:"نشانی تماس به‌زودی اینجا افزوده می‌شود.",upd:"به‌روزرسانی"},
+ar:{h1:"سياسة الخصوصية",sub:"تطبيق «سفينة» لأجهزة iPhone",sum:"لا يجمع تطبيق سفينة بياناتك الشخصية ولا يخزّنها على خوادم ولا يشاركها مع أحد. لا يوجد في التطبيق حسابات ولا إعلانات ولا تحليلات ولا تتبّع.",
+s:[["ما يُحفظ على جهازك","الإعدادات (المدينة واللغة وطريقة الحساب والمرجع) وعلامات الصلوات والقضاء والأهداف والإشارات المرجعية والنصوص التي تضيفها تُحفظ على جهاز iPhone فقط. لا يطّلع عليها المطوّر، وتُحذف مع حذف التطبيق."],
+["الموقع","يُطلب الوصول إلى الموقع فقط عند الضغط على «تحديد موقعي». تُستخدم الإحداثيات على الجهاز لحساب أوقات الصلاة والقبلة. ولعرض اسم المكان يستعين iPhone بخدمة النظام من Apple. لا تُرسل الإحداثيات إلى المطوّر."],
+["الإشعارات والعد التنازلي للصلاة","تُنشأ إشعارات الأذان والتذكيرات (مثل دعاء كميل) وتُجدول على جهاز iPhone نفسه. ويُحسب العد التنازلي للصلاة على شاشة القفل وفي Dynamic Island على الجهاز أيضًا. لا يُستخدم أي خادم."],
+["تلاوة القرآن","عند تشغيل تلاوة قارئ تُحمَّل التسجيلات من موقع everyayah.com. وكأي موقع، يتلقى هذا الخادم بيانات الطلب التقنية مثل عنوان IP. ولا يرسل التطبيق إليه أي معلومات أخرى عنك."],
+["المشتريات: سفينة+ والدعم","الميزات الأساسية مجانية. يفتح اشتراك سفينة+ (شهري أو سنوي مع فترة تجريبية) والشراء مدى الحياة ميزات إضافية. يتجدد الاشتراك تلقائيًا ويمكن إلغاؤه من إعدادات Apple ID. لا تفتح مدفوعات الدعم الطوعية أي ميزة. تتم جميع المدفوعات عبر App Store: تعالج Apple بيانات الدفع ولا يتلقاها المطوّر. يتحقق التطبيق من Apple فقط مما إذا كان الاشتراك نشطًا."],
+["الروابط الخارجية","تُفتح روابط مواقع المراجع والمصادر في Safari، ولهذه المواقع قواعد الخصوصية الخاصة بها."],
+["الأطفال","التطبيق مناسب لجميع الأعمار ولا يجمع بيانات شخصية من أحد، بمن فيهم الأطفال."],
+["التغييرات","إذا تغيّرت هذه السياسة فستظهر النسخة الجديدة في هذه الصفحة بتاريخ جديد."]],
+contact:"التواصل مع المطوّر",nomail:"سيُضاف عنوان التواصل هنا.",upd:"آخر تحديث"}};
+function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function show(l){const t=L[l]||L.ru;const rtl=l==="fa"||l==="ar";
+  document.documentElement.lang=l;document.documentElement.dir=rtl?"rtl":"ltr";
+  document.getElementById("h1").textContent=t.h1;document.getElementById("sub").textContent=t.sub;document.getElementById("sum").textContent=t.sum;
+  document.getElementById("body").innerHTML=t.s.map(([h,p])=>`<section><h2>${esc(h)}</h2><p>${esc(p)}</p></section>`).join("")+
+    `<section><h2>${esc(t.contact)}</h2><p>${CONTACT?`<span class="mail">${esc(CONTACT)}</span>`:esc(t.nomail)}</p></section>`;
+  document.getElementById("meta").textContent=`${t.upd}: ${UPDATED[l]}`;
+  document.querySelectorAll("#langs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.l===l)));
+  try{localStorage.setItem("safina.privacy.lang",l)}catch(e){}}
+document.getElementById("langs").onclick=e=>{const b=e.target.closest("button");if(b)show(b.dataset.l)};
+let start="ru";const h=(location.hash||"").slice(1);
+if(L[h])start=h;else{try{const s=localStorage.getItem("safina.privacy.lang");if(L[s])start=s;else{const n=(navigator.language||"ru").slice(0,2);if(L[n])start=n}}catch(e){}}
+show(start);
+</script>
+</body></html>
